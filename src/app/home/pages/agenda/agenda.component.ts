@@ -11,6 +11,7 @@ export class AgendaComponent implements OnInit{
   public allContacts: Contact[] = [];
   public haveSelectedContact: boolean = false;
   public contact!: Contact;
+  public menu: boolean = false;
 
   constructor( private httpServ: HttpService ) {}
 
@@ -44,6 +45,10 @@ export class AgendaComponent implements OnInit{
     this.allContacts.push(value);
     this.contact = value;
     this.haveSelectedContact = true;
+  }
+
+  showMenu() {
+    this.menu = true;
   }
 
 }

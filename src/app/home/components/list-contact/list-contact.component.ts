@@ -11,7 +11,9 @@ export class ListContactComponent {
   @Input() ContactData: Contact[] = [];
   @Output() emitContact: EventEmitter<Contact> = new EventEmitter();
   @Output() emitCreateContact: EventEmitter<boolean> = new EventEmitter();
+  @Output() emitCloseMenu: EventEmitter<boolean> = new EventEmitter();
   public selectedContact: Contact[] = [];
+  public menuOpen: boolean = false
 
   verifySelectedContact( element: Contact ): boolean {
     return this.selectedContact.includes( element )
@@ -24,6 +26,10 @@ export class ListContactComponent {
 
   emitCreate() {
     this.emitCreateContact.emit(true);
+  }
+
+  emitClose() {
+    this.emitCloseMenu.emit(true);
   }
 
 }

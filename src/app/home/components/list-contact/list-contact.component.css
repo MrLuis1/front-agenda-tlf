@@ -1,5 +1,20 @@
+.container {
+    max-height: 100%;
+    overflow-y: scroll;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .mat-mdc-list-item:not(.mat-mdc-list-item-interactive), .mat-mdc-list-option:not(.mat-mdc-list-item-interactive) {
     cursor: pointer !important;
+}
+
+.toggle-btn {
+    display: none;
 }
 
 .active {
@@ -18,4 +33,14 @@
     color: #6464c9 !important;
     font-weight: bolder;
     margin-block: 10px;
+}
+
+@media (max-width: 400px) {
+    .add-btn > span {
+        font-size: 12px !important;
+    }
+
+    .toggle-btn {
+        display: block;
+    }
 }

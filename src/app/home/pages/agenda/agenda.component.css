@@ -4,6 +4,10 @@
     height: 100%;
 }
 
+.menu-btn {
+    display: none;
+}
+
 app-list-contact {
     width: 40%;
     height: 100%;
@@ -14,4 +18,40 @@ app-profile-info,
 app-form-add {
     padding: 15px;
     width: 60%;
+}
+
+
+
+@media (max-width: 400px) {
+    .container {
+        position: relative;
+    }
+
+    .menu-btn {
+        display: block;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+
+    app-list-contact {
+        position: absolute !important;
+        left: -90%;
+        z-index: 2 !important;
+        width: 80%;
+        height: 100%;
+        background-color: #272727f9 !important;
+        transition: .3s ease;
+        border: none;
+    }
+
+    app-list-contact.active {
+        transform: translateX(112%);
+    }
+
+    app-profile-info,
+    app-form-add {
+        padding: 0;
+        width: 100%;
+    }
 }

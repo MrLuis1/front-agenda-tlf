@@ -1,7 +1,14 @@
 .content {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
+}
+
+.btn-container {
+    width: 100%;
 }
 
 .edit-container {
@@ -17,11 +24,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 80%;
     height: 80%;
 }
 
 .form-container > form {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -49,6 +57,10 @@
 }
 
 .more-icon {
+    position: absolute;
+    right: 0;
+    top: 8px;
+    right: 8px;
     color: #FFFFFF !important;
 }
 
@@ -61,4 +73,11 @@
 
 mat-icon {
     margin-right: 0 !important;
+    color: #FFFFFF !important;
+}
+
+@media (max-width: 400px) {
+    .form-container {
+        width: 90%;
+    }
 }

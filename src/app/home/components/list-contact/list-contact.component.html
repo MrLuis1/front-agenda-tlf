@@ -1,21 +1,31 @@
-<mat-list class="list">
-    <button mat-button class="add-btn"
-            (click)="emitCreate()">
-        <mat-icon>
-            person_add
-        </mat-icon>
 
-        <span>Crear contacto nuevo</span>
-    </button>
-    <ng-container *ngFor="let contact of ContactData">
-        <mat-list-item 
-            class="item"
-            [id]="contact.id"
-            [class.active]="verifySelectedContact(contact)"
-            (click)="handleContact( contact )">
-                {{ contact.nombre }}
-        </mat-list-item>
+<div class="container">
+    <mat-list class="list">
+        <div class="btn-container">
+            <button mat-button 
+                    class="toggle-btn"
+                    (click)="emitClose()">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+            <button mat-button class="add-btn"
+                    (click)="emitCreate()">
+                <mat-icon>
+                    person_add
+                </mat-icon>
         
-    </ng-container>
-</mat-list>
-  
+                <span>Crear contacto nuevo</span>
+            </button>
+        </div>
+        <ng-container *ngFor="let contact of ContactData">
+            <mat-list-item 
+                class="item"
+                [id]="contact.id"
+                [class.active]="verifySelectedContact(contact)"
+                (click)="handleContact( contact )">
+                    {{ contact.nombre }}
+            </mat-list-item>
+            
+        </ng-container>
+    </mat-list>
+      
+</div>

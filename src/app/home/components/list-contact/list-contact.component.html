@@ -1,0 +1,21 @@
+<mat-list class="list">
+    <button mat-button class="add-btn"
+            (click)="emitCreate()">
+        <mat-icon>
+            person_add
+        </mat-icon>
+
+        <span>Crear contacto nuevo</span>
+    </button>
+    <ng-container *ngFor="let contact of ContactData">
+        <mat-list-item 
+            class="item"
+            [id]="contact.id"
+            [class.active]="verifySelectedContact(contact)"
+            (click)="handleContact( contact )">
+                {{ contact.nombre }}
+        </mat-list-item>
+        
+    </ng-container>
+</mat-list>
+  

@@ -1,0 +1,68 @@
+
+<div class="content">
+    <div class="form-container">
+    <form [formGroup]="contactForm" (ngSubmit)="createContact( contactForm )">
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matInput type="text" formControlName="nombre">
+                <mat-icon matSuffix>account_circle</mat-icon>
+                <mat-error *ngIf="contactForm.invalid">
+                    * El campo es requerido
+                </mat-error>
+            </mat-form-field>          
+    
+            <mat-form-field appearance="outline">
+                <mat-label>Apellido</mat-label>
+                <input matInput type="text" formControlName="apellido">
+                <mat-icon matSuffix>account_circle</mat-icon>
+                <mat-error *ngIf="contactForm.invalid">
+                    * El campo es requerido
+                </mat-error>
+            </mat-form-field>    
+    
+            <mat-form-field appearance="outline">
+                <mat-label>Correo</mat-label>
+                <input matInput type="text" formControlName="correo">
+                <mat-icon matSuffix>mail</mat-icon>
+                <mat-error *ngIf="contactForm.invalid">
+                    * El campo es requerido
+                </mat-error>
+            </mat-form-field>  
+    
+            <div class="phone-container">
+                <mat-form-field appearance="outline" class="type-select">
+                    <mat-label>
+                      <mat-icon>devices</mat-icon>
+                    </mat-label>
+                    <mat-select formControlName="typeNumber">
+                      <mat-option *ngFor="let type of Types" [value]="type" >
+                        {{ type }}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="contactForm.invalid">
+                        * Seleccione una opción
+                    </mat-error>
+                </mat-form-field>
+        
+                <mat-form-field appearance="outline" class="phone-field">
+                    <mat-label>Teléfono</mat-label>
+                    <input matInput type="text" formControlName="telefono">
+                    <mat-icon matSuffix>phone</mat-icon>
+                    <mat-error *ngIf="contactForm.invalid">
+                        * Debe ingresar un valor válido
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="edit-container">
+                <button mat-raised-button 
+                        color="accent"
+                        type="submit"
+                        [disabled]="contactForm.invalid">
+                    Guardar
+                </button>
+            </div>
+        </form>
+    </div>
+    
+</div>

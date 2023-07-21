@@ -1,0 +1,7 @@
+
+<div class="container">
+    <app-list-contact [ContactData]="allContacts" (emitContact)="listeningContact( $event )" (emitCreateContact)="haveSelectedContact = false" ></app-list-contact>
+
+    <app-profile-info *ngIf="haveSelectedContact" [selectedContact]="contact" (deletedContact)="updateContactList( $event )"></app-profile-info>
+    <app-form-add *ngIf="!haveSelectedContact" (newContact)="setCreateContact( $event )"></app-form-add>
+</div>

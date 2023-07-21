@@ -1,0 +1,21 @@
+.mat-mdc-list-item:not(.mat-mdc-list-item-interactive), .mat-mdc-list-option:not(.mat-mdc-list-item-interactive) {
+    cursor: pointer !important;
+}
+
+.active {
+    background: grey;
+    transition: .2s ease;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-btn {
+    color: #6464c9 !important;
+    font-weight: bolder;
+    margin-block: 10px;
+}

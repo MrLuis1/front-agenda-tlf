@@ -1,0 +1,90 @@
+
+<div class="content">
+    <div>
+        <button mat-icon-button [matMenuTriggerFor]="menu" class="more-icon">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item 
+                  class="menu-btn"
+                  (click)="enableFields()">
+                <mat-icon>edit</mat-icon>
+                <span>Editar</span>
+          </button>
+
+          <button mat-menu-item 
+                  class="menu-btn"
+                  (click)="deleteContact()">
+                <mat-icon>delete</mat-icon>
+                <span>Borrar</span>
+          </button>
+        </mat-menu>
+    </div>
+
+    <div class="form-container">
+    <form [formGroup]="profileForm" (ngSubmit)="updateContact( profileForm )">
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matInput type="text" formControlName="nombre">
+                <mat-icon matSuffix>account_circle</mat-icon>
+                <mat-error *ngIf="profileForm.invalid">
+                  * El campo es requerido
+                </mat-error>
+            </mat-form-field>          
+    
+            <mat-form-field appearance="outline">
+                <mat-label>Apellido</mat-label>
+                <input matInput type="text" formControlName="apellido">
+                <mat-icon matSuffix>account_circle</mat-icon>
+                <mat-error *ngIf="profileForm.invalid">
+                  * El campo es requerido
+                </mat-error>
+            </mat-form-field>    
+    
+            <mat-form-field appearance="outline">
+                <mat-label>Correo</mat-label>
+                <input matInput type="text" formControlName="correo">
+                <mat-icon matSuffix>mail</mat-icon>
+                <mat-error *ngIf="profileForm.invalid">
+                  * El campo es requerido
+                </mat-error>
+            </mat-form-field>  
+    
+            <div class="phone-container">
+                <mat-form-field appearance="outline" class="type-select">
+                  <mat-label>
+                    <mat-icon>devices</mat-icon>
+                  </mat-label>
+                  <mat-select formControlName="typeNumber">
+                    <mat-option *ngFor="let type of Types" [value]="type" >
+                      {{ type }}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="profileForm.invalid">
+                    * El campo es requerido
+                  </mat-error>
+                </mat-form-field>
+        
+                <mat-form-field appearance="outline" class="phone-field">
+                    <mat-label>Teléfono</mat-label>
+                    <input matInput type="text" formControlName="telefono">
+                    <mat-icon matSuffix>phone</mat-icon>
+                    <mat-error *ngIf="profileForm.invalid">
+                      * Debe ingresar un valor válido
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="edit-container" *ngIf="!disableEdit">
+                <button mat-raised-button 
+                        color="accent"
+                        type="submit"
+                        [disabled]="profileForm.invalid">
+                    Guardar
+                </button>
+            </div>
+        </form>
+    </div>
+    
+</div>
